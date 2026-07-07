@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Make Up Girls · Maquillaje original en Mazatlán</title>
+  <meta name="description" content="Maquillaje 100% original: NYX, e.l.f., Maybelline, rhode y Fenty Beauty. Entregas a domicilio y en universidad UAS, Mazatlán." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Barra de anuncios -->
+  <div class="announcement">
+    <div class="announcement__track">
+      <span>✦ MAQUILLAJE 100% ORIGINAL ✦ ENTREGAS A DOMICILIO ✦ ENTREGA EN UNIVERSIDAD UAS ✦ MAZATLÁN, SIN ✦ PAGO CONTRA ENTREGA ✦</span>
+      <span aria-hidden="true">✦ MAQUILLAJE 100% ORIGINAL ✦ ENTREGAS A DOMICILIO ✦ ENTREGA EN UNIVERSIDAD UAS ✦ MAZATLÁN, SIN ✦ PAGO CONTRA ENTREGA ✦</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <a class="header__brand" href="#inicio">
+      <img src="products/logo.jpeg" alt="Logo The Make Up Girls" class="header__logo" />
+      <span class="header__name">the make up girls</span>
+    </a>
+    <nav class="header__nav" id="nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#proceso">Cómo comprar</a>
+      <a href="#nosotras">Nosotras</a>
+    </nav>
+    <div class="header__actions">
+      <button class="cart-btn" id="cartOpenBtn" aria-label="Abrir carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-btn__badge" id="cartBadge" hidden>0</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menú">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="hero__blob hero__blob--1"></div>
+      <div class="hero__blob hero__blob--2"></div>
+      <div class="hero__content">
+        <p class="hero__kicker">✧ maquillaje original en Mazatlán ✧</p>
+        <h1 class="hero__title">GLOW UP,<br /><span>GIRL</span> <span class="hero__wink">҉</span></h1>
+        <p class="hero__sub">
+          Tus marcas favoritas — rhode, NYX, e.l.f., Maybelline y Fenty Beauty —
+          100% originales y con entrega a domicilio o en la UAS. 💌
+        </p>
+        <div class="hero__cta">
+          <a href="#catalogo" class="btn btn--primary">Ver catálogo ♡</a>
+          <a href="#proceso" class="btn btn--ghost">¿Cómo comprar?</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__card hero__card--main">
+          <img src="products/p2.jpeg" alt="NYX Buttermelt Blush" />
+        </div>
+        <div class="hero__card hero__card--float1">
+          <img src="products/p8.jpeg" alt="e.l.f. Lip Oil" />
+        </div>
+        <div class="hero__card hero__card--float2">
+          <img src="products/p1.jpeg" alt="rhode Peptide Lip Tint" />
+        </div>
+        <span class="hero__sparkle hero__sparkle--1">✦</span>
+        <span class="hero__sparkle hero__sparkle--2">✧</span>
+        <span class="hero__sparkle hero__sparkle--3">♡</span>
+      </div>
+    </section>
+
+    <!-- Marcas -->
+    <section class="brands">
+      <p class="brands__label">marcas que amamos</p>
+      <div class="brands__list">
+        <span class="brands__pill">rhode</span>
+        <span class="brands__pill">NYX</span>
+        <span class="brands__pill">e.l.f.</span>
+        <span class="brands__pill">Maybelline</span>
+        <span class="brands__pill">Fenty Beauty</span>
+        <span class="brands__pill">Rare Beauty</span>
+      </div>
+    </section>
+
+    <!-- Catálogo -->
+    <section class="catalog" id="catalogo">
+      <div class="section-head">
+        <h2 class="section-head__title">Nuestro catálogo</h2>
+        <p class="section-head__sub">Elige tu tono, agrégalo al carrito y nosotras nos encargamos del resto ✨</p>
+      </div>
+      <div class="catalog__filters" id="filters">
+        <button class="chip chip--active" data-filter="todo">Todo</button>
+        <button class="chip" data-filter="labios">Labios 💋</button>
+        <button class="chip" data-filter="mejillas">Mejillas 🌸</button>
+        <button class="chip" data-filter="rostro">Rostro ✨</button>
+      </div>
+      <div class="catalog__grid" id="productGrid"></div>
+    </section>
+
+    <!-- Proceso -->
+    <section class="process" id="proceso">
+      <div class="section-head">
+        <h2 class="section-head__title">Así de fácil es comprar</h2>
+        <p class="section-head__sub">Sin complicaciones, como debe ser 💅</p>
+      </div>
+      <div class="process__steps">
+        <article class="process__step">
+          <div class="process__icon">🛍️</div>
+          <span class="process__num">1</span>
+          <h3>Elige tus productos</h3>
+          <p>Explora el catálogo, escoge tu tono favorito y agrégalo al carrito.</p>
+        </article>
+        <article class="process__step">
+          <div class="process__icon">📋</div>
+          <span class="process__num">2</span>
+          <h3>Confirma tu pedido</h3>
+          <p>Llena tus datos y elige entrega a domicilio o en la universidad UAS.</p>
+        </article>
+        <article class="process__step">
+          <div class="process__icon">💌</div>
+          <span class="process__num">3</span>
+          <h3>Te contactamos</h3>
+          <p>Te escribimos por Instagram para confirmar y coordinar tu entrega.</p>
+        </article>
+        <article class="process__step">
+          <div class="process__icon">💖</div>
+          <span class="process__num">4</span>
+          <h3>Recibe tu glow</h3>
+          <p>Pagas al recibir tu pedido. ¡Y a brillar, bonita!</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Nosotras -->
+    <section class="about" id="nosotras">
+      <div class="about__media">
+        <img src="products/logo.jpeg" alt="The Make Up Girls" />
+      </div>
+      <div class="about__text">
+        <h2 class="section-head__title">Hola, somos<br />the make up girls ♡</h2>
+        <p>
+          Somos una tienda de maquillaje en <strong>Mazatlán, Sinaloa</strong> con una misión simple:
+          que tengas tus productos favoritos, <strong>100% originales</strong>, sin pagar de más ni esperar semanas.
+        </p>
+        <ul class="about__perks">
+          <li>✔ Producto original garantizado</li>
+          <li>✔ Entregas a domicilio en Mazatlán</li>
+          <li>✔ Punto de entrega en universidad UAS</li>
+          <li>✔ Atención personalizada por DM</li>
+        </ul>
+        <a class="btn btn--primary" href="https://www.instagram.com/themakeup_girls_" target="_blank" rel="noopener">Síguenos en Instagram 📸</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__col footer__col--brand">
+        <img src="products/logo.jpeg" alt="Logo" class="footer__logo" />
+        <p>Maquillaje original con amor,<br />desde Mazatlán 💗</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explora</h4>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#proceso">Cómo comprar</a>
+        <a href="#nosotras">Nosotras</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <a href="https://www.instagram.com/themakeup_girls_" target="_blank" rel="noopener">@themakeup_girls_</a>
+        <span>📍 Mazatlán, Sinaloa</span>
+        <span>🚚 Domicilio y universidad UAS</span>
+      </div>
+    </div>
+    <p class="footer__note">© 2026 The Make Up Girls · Hecho con ♡</p>
+  </footer>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" hidden></div>
+
+  <!-- Drawer del carrito -->
+  <aside class="cart" id="cartDrawer" aria-label="Carrito de compras">
+    <div class="cart__head">
+      <h3>Tu carrito <span class="cart__count" id="cartCountLabel"></span></h3>
+      <button class="icon-btn" id="cartCloseBtn" aria-label="Cerrar carrito">✕</button>
+    </div>
+    <div class="cart__items" id="cartItems"></div>
+    <div class="cart__foot" id="cartFoot">
+      <div class="cart__total">
+        <span>Subtotal</span>
+        <strong id="cartTotal">$0</strong>
+      </div>
+      <p class="cart__hint">El pago se realiza al recibir tu pedido 💕</p>
+      <button class="btn btn--primary btn--block" id="checkoutBtn">Finalizar pedido ♡</button>
+    </div>
+  </aside>
+
+  <!-- Modal de producto -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal__card modal__card--product">
+      <button class="icon-btn modal__close" data-close-modal aria-label="Cerrar">✕</button>
+      <div class="pmodal__media">
+        <img id="pmodalImg" src="" alt="" />
+      </div>
+      <div class="pmodal__info">
+        <span class="pmodal__brand" id="pmodalBrand"></span>
+        <h3 class="pmodal__name" id="pmodalName"></h3>
+        <p class="pmodal__price" id="pmodalPrice"></p>
+        <p class="pmodal__desc" id="pmodalDesc"></p>
+        <div class="pmodal__shades" id="pmodalShades"></div>
+        <button class="btn btn--primary btn--block" id="pmodalAdd">Agregar al carrito 🛍️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de checkout -->
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal__card modal__card--checkout">
+      <button class="icon-btn modal__close" data-close-modal aria-label="Cerrar">✕</button>
+
+      <div class="steps" id="checkoutSteps">
+        <span class="steps__dot steps__dot--active" data-step-dot="1">1</span>
+        <span class="steps__line"></span>
+        <span class="steps__dot" data-step-dot="2">2</span>
+        <span class="steps__line"></span>
+        <span class="steps__dot" data-step-dot="3">3</span>
+      </div>
+
+      <!-- Paso 1: resumen -->
+      <section class="checkout-step" data-step="1">
+        <h3 class="checkout__title">Resumen de tu pedido 🛍️</h3>
+        <div class="checkout__summary" id="checkoutSummary"></div>
+        <div class="checkout__total">
+          <span>Total</span>
+          <strong id="checkoutTotal">$0</strong>
+        </div>
+        <button class="btn btn--primary btn--block" id="toStep2">Continuar →</button>
+      </section>
+
+      <!-- Paso 2: datos -->
+      <section class="checkout-step" data-step="2" hidden>
+        <h3 class="checkout__title">Tus datos 💌</h3>
+        <form id="checkoutForm" novalidate>
+          <label class="field">
+            <span>Nombre</span>
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
+          </label>
+          <label class="field">
+            <span>Instagram</span>
+            <input type="text" name="instagram" placeholder="@tu_usuario" required />
+          </label>
+          <fieldset class="field field--radio">
+            <span>Tipo de entrega</span>
+            <label><input type="radio" name="entrega" value="Domicilio (Mazatlán)" checked /> 🏠 A domicilio</label>
+            <label><input type="radio" name="entrega" value="Universidad UAS" /> 🎓 Universidad UAS</label>
+          </fieldset>
+          <label class="field">
+            <span>Notas (opcional)</span>
+            <textarea name="notas" rows="2" placeholder="Colonia, horario, referencias..."></textarea>
+          </label>
+          <div class="checkout__nav">
+            <button type="button" class="btn btn--ghost" id="backStep1">← Volver</button>
+            <button type="submit" class="btn btn--primary">Confirmar pedido ♡</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Paso 3: confirmación -->
+      <section class="checkout-step checkout-step--done" data-step="3" hidden>
+        <div class="checkout__party">🎀</div>
+        <h3 class="checkout__title">¡Pedido registrado!</h3>
+        <p class="checkout__orderid">Pedido <strong id="orderId"></strong></p>
+        <p class="checkout__donetext">
+          Gracias, <strong id="orderName"></strong> 💖<br />
+          Te escribiremos por Instagram a <strong id="orderIg"></strong> para
+          confirmar tu entrega. El pago es al recibir.
+        </p>
+        <p class="checkout__demo">* Demo: esta tienda aún no procesa compras reales.</p>
+        <button class="btn btn--primary btn--block" id="doneBtn">Seguir viendo el catálogo ✨</button>
+      </section>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
