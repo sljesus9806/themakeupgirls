@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Make Up Girls · Maquillaje original en Mazatlán</title>
   <meta name="description" content="Maquillaje 100% original: NYX, e.l.f., Maybelline, rhode y Fenty Beauty. Entregas a domicilio y en universidad UAS, Mazatlán." />
+  <meta name="theme-color" content="#ffc9df" />
+  <link rel="icon" href="products/logo.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -15,8 +18,8 @@
   <!-- Barra de anuncios -->
   <div class="announcement">
     <div class="announcement__track">
-      <span>✦ MAQUILLAJE 100% ORIGINAL ✦ ENTREGAS A DOMICILIO ✦ ENTREGA EN UNIVERSIDAD UAS ✦ MAZATLÁN, SIN ✦ PAGO CONTRA ENTREGA ✦</span>
-      <span aria-hidden="true">✦ MAQUILLAJE 100% ORIGINAL ✦ ENTREGAS A DOMICILIO ✦ ENTREGA EN UNIVERSIDAD UAS ✦ MAZATLÁN, SIN ✦ PAGO CONTRA ENTREGA ✦</span>
+      <span>♡ maquillaje 100% original ✿ entregas a domicilio ✦ entrega en universidad UAS ♡ Mazatlán, Sin. ✿ pago contra entrega ✦</span>
+      <span aria-hidden="true">♡ maquillaje 100% original ✿ entregas a domicilio ✦ entrega en universidad UAS ♡ Mazatlán, Sin. ✿ pago contra entrega ✦</span>
     </div>
   </div>
 
@@ -34,126 +37,138 @@
     </nav>
     <div class="header__actions">
       <button class="cart-btn" id="cartOpenBtn" aria-label="Abrir carrito">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         <span class="cart-btn__badge" id="cartBadge" hidden>0</span>
       </button>
-      <button class="menu-btn" id="menuBtn" aria-label="Menú">☰</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
     <!-- Hero -->
     <section class="hero" id="inicio">
-      <div class="hero__blob hero__blob--1"></div>
-      <div class="hero__blob hero__blob--2"></div>
       <div class="hero__content">
-        <p class="hero__kicker">✧ maquillaje original en Mazatlán ✧</p>
-        <h1 class="hero__title">GLOW UP,<br /><span>GIRL</span> <span class="hero__wink">҉</span></h1>
+        <p class="hero__kicker">✿ maquillaje original en Mazatlán ✿</p>
+        <h1 class="hero__title">
+          Glow up,
+          <span class="hero__nowrap"><span class="hero__script">girl</span><span class="hero__heart" aria-hidden="true">♡</span></span>
+        </h1>
         <p class="hero__sub">
-          Tus marcas favoritas — rhode, NYX, e.l.f., Maybelline y Fenty Beauty —
-          100% originales y con entrega a domicilio o en la UAS. 💌
+          Tus marcas favoritas, 100% originales, con entrega a domicilio o en la UAS.
+          Elige, pide por WhatsApp y listo 💌
         </p>
         <div class="hero__cta">
           <a href="#catalogo" class="btn btn--primary">Ver catálogo ♡</a>
           <a href="#proceso" class="btn btn--ghost">¿Cómo comprar?</a>
         </div>
       </div>
-      <div class="hero__visual">
-        <div class="hero__card hero__card--main">
+      <div class="hero__visual" id="heroVisual">
+        <figure class="polaroid polaroid--main tint-pink">
           <img src="products/p2.jpeg" alt="NYX Buttermelt Blush" />
-        </div>
-        <div class="hero__card hero__card--float1">
+        </figure>
+        <figure class="polaroid polaroid--left tint-mint">
           <img src="products/p8.jpeg" alt="e.l.f. Lip Oil" />
-        </div>
-        <div class="hero__card hero__card--float2">
+        </figure>
+        <figure class="polaroid polaroid--right tint-lilac">
           <img src="products/p1.jpeg" alt="rhode Peptide Lip Tint" />
-        </div>
-        <span class="hero__sparkle hero__sparkle--1">✦</span>
-        <span class="hero__sparkle hero__sparkle--2">✧</span>
-        <span class="hero__sparkle hero__sparkle--3">♡</span>
+        </figure>
+        <span class="sticker sticker--1" aria-hidden="true">🎀</span>
+        <span class="sticker sticker--2" aria-hidden="true">✨</span>
+        <span class="sticker sticker--3" aria-hidden="true">💖</span>
+        <span class="sticker sticker--4" aria-hidden="true">🌸</span>
       </div>
     </section>
 
     <!-- Marcas -->
     <section class="brands">
       <p class="brands__label">marcas que amamos</p>
-      <div class="brands__list">
-        <span class="brands__pill">rhode</span>
-        <span class="brands__pill">NYX</span>
-        <span class="brands__pill">e.l.f.</span>
-        <span class="brands__pill">Maybelline</span>
-        <span class="brands__pill">Fenty Beauty</span>
-        <span class="brands__pill">Rare Beauty</span>
+      <div class="brands__list" id="brandsList">
+        <span class="brands__pill tint-pink">rhode</span>
+        <span class="brands__pill tint-lilac">NYX</span>
+        <span class="brands__pill tint-mint">e.l.f.</span>
+        <span class="brands__pill tint-butter">Maybelline</span>
+        <span class="brands__pill tint-peach">Fenty Beauty</span>
       </div>
     </section>
 
     <!-- Catálogo -->
     <section class="catalog" id="catalogo">
       <div class="section-head">
-        <h2 class="section-head__title">Nuestro catálogo</h2>
+        <h2 class="section-head__title">Nuestro catálogo <span class="deco">♡</span></h2>
         <p class="section-head__sub">Elige tu tono, agrégalo al carrito y nosotras nos encargamos del resto ✨</p>
       </div>
-      <div class="catalog__filters" id="filters">
-        <button class="chip chip--active" data-filter="todo">Todo</button>
-        <button class="chip" data-filter="labios">Labios 💋</button>
-        <button class="chip" data-filter="mejillas">Mejillas 🌸</button>
-        <button class="chip" data-filter="rostro">Rostro ✨</button>
+      <div class="catalog__tools">
+        <label class="search">
+          <span class="visually-hidden">Buscar</span>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="searchInput" placeholder="Busca un producto o marca…" autocomplete="off" />
+        </label>
+        <div class="catalog__filters" id="filters" role="tablist" aria-label="Categorías"></div>
       </div>
-      <div class="catalog__grid" id="productGrid"></div>
+      <div class="catalog__grid" id="productGrid">
+        <div class="spinner" aria-label="Cargando productos"></div>
+      </div>
     </section>
 
     <!-- Proceso -->
     <section class="process" id="proceso">
-      <div class="section-head">
-        <h2 class="section-head__title">Así de fácil es comprar</h2>
-        <p class="section-head__sub">Sin complicaciones, como debe ser 💅</p>
-      </div>
-      <div class="process__steps">
-        <article class="process__step">
-          <div class="process__icon">🛍️</div>
-          <span class="process__num">1</span>
-          <h3>Elige tus productos</h3>
-          <p>Explora el catálogo, escoge tu tono favorito y agrégalo al carrito.</p>
-        </article>
-        <article class="process__step">
-          <div class="process__icon">📋</div>
-          <span class="process__num">2</span>
-          <h3>Confirma tu pedido</h3>
-          <p>Llena tus datos y elige entrega a domicilio o en la universidad UAS.</p>
-        </article>
-        <article class="process__step">
-          <div class="process__icon">💌</div>
-          <span class="process__num">3</span>
-          <h3>Te contactamos</h3>
-          <p>Te escribimos por Instagram para confirmar y coordinar tu entrega.</p>
-        </article>
-        <article class="process__step">
-          <div class="process__icon">💖</div>
-          <span class="process__num">4</span>
-          <h3>Recibe tu glow</h3>
-          <p>Pagas al recibir tu pedido. ¡Y a brillar, bonita!</p>
-        </article>
+      <div class="process__inner">
+        <div class="section-head">
+          <h2 class="section-head__title">Así de fácil es comprar</h2>
+          <p class="section-head__sub">Sin complicaciones, como debe ser 💅</p>
+        </div>
+        <div class="process__steps">
+          <article class="process__step tint-pink">
+            <span class="process__num">1</span>
+            <div class="process__icon">🛍️</div>
+            <h3>Elige tus productos</h3>
+            <p>Explora el catálogo, escoge tu tono favorito y agrégalo al carrito.</p>
+          </article>
+          <article class="process__step tint-lilac">
+            <span class="process__num">2</span>
+            <div class="process__icon">📋</div>
+            <h3>Llena tus datos</h3>
+            <p>Tu nombre, tu WhatsApp y si lo quieres a domicilio o en la UAS.</p>
+          </article>
+          <article class="process__step tint-mint">
+            <span class="process__num">3</span>
+            <div class="process__icon">💬</div>
+            <h3>Envía tu pedido</h3>
+            <p>Se abre WhatsApp (o tu correo) con el pedido listo. Solo dale enviar.</p>
+          </article>
+          <article class="process__step tint-butter">
+            <span class="process__num">4</span>
+            <div class="process__icon">💖</div>
+            <h3>Recibe tu glow</h3>
+            <p>Te confirmamos la entrega y pagas al recibir. ¡A brillar, bonita!</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- Nosotras -->
     <section class="about" id="nosotras">
       <div class="about__media">
-        <img src="products/logo.jpeg" alt="The Make Up Girls" />
+        <figure class="polaroid tint-lilac">
+          <img src="products/logo.jpeg" alt="The Make Up Girls" />
+          <figcaption>the make up girls ♡</figcaption>
+        </figure>
       </div>
       <div class="about__text">
-        <h2 class="section-head__title">Hola, somos<br />the make up girls ♡</h2>
+        <h2 class="section-head__title">Hola, somos<br /><span class="script">the make up girls</span></h2>
         <p>
           Somos una tienda de maquillaje en <strong>Mazatlán, Sinaloa</strong> con una misión simple:
           que tengas tus productos favoritos, <strong>100% originales</strong>, sin pagar de más ni esperar semanas.
         </p>
         <ul class="about__perks">
-          <li>✔ Producto original garantizado</li>
-          <li>✔ Entregas a domicilio en Mazatlán</li>
-          <li>✔ Punto de entrega en universidad UAS</li>
-          <li>✔ Atención personalizada por DM</li>
+          <li class="tint-pink">✔ Producto original garantizado</li>
+          <li class="tint-mint">✔ Entregas a domicilio en Mazatlán</li>
+          <li class="tint-lilac">✔ Punto de entrega en universidad UAS</li>
+          <li class="tint-butter">✔ Atención personalizada por WhatsApp</li>
         </ul>
-        <a class="btn btn--primary" href="https://www.instagram.com/themakeup_girls_" target="_blank" rel="noopener">Síguenos en Instagram 📸</a>
+        <a class="btn btn--primary" id="instagramBtn" href="https://www.instagram.com/themakeup_girls_" target="_blank" rel="noopener">Síguenos en Instagram 📸</a>
       </div>
     </section>
   </main>
@@ -162,7 +177,7 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__col footer__col--brand">
-        <img src="products/logo.jpeg" alt="Logo" class="footer__logo" />
+        <img src="products/logo.jpeg" alt="" class="footer__logo" />
         <p>Maquillaje original con amor,<br />desde Mazatlán 💗</p>
       </div>
       <div class="footer__col">
@@ -173,13 +188,19 @@
       </div>
       <div class="footer__col">
         <h4>Contacto</h4>
-        <a href="https://www.instagram.com/themakeup_girls_" target="_blank" rel="noopener">@themakeup_girls_</a>
+        <a id="footerWhatsapp" href="#" target="_blank" rel="noopener">💬 WhatsApp 669 153 9982</a>
+        <a id="footerEmail" href="#">💌 Escríbenos un correo</a>
+        <a id="footerInstagram" href="https://www.instagram.com/themakeup_girls_" target="_blank" rel="noopener">📸 @themakeup_girls_</a>
         <span>📍 Mazatlán, Sinaloa</span>
-        <span>🚚 Domicilio y universidad UAS</span>
       </div>
     </div>
-    <p class="footer__note">© 2026 The Make Up Girls · Hecho con ♡</p>
+    <p class="footer__note">© 2026 The Make Up Girls · Hecho con ♡ · <a href="admin.html">Panel</a></p>
   </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.16-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.06a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-3.06.89.9-2.98-.2-.31a8.16 8.16 0 1 1 6.82 3.72Zm4.48-6.1c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.77.96-.14.17-.28.19-.53.07a6.7 6.7 0 0 1-1.97-1.22 7.4 7.4 0 0 1-1.37-1.7c-.14-.25 0-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.75 2.75 0 0 0-.86 2.05c0 1.2.88 2.37 1 2.54.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.29Z"/></svg>
+  </a>
 
   <!-- Overlay -->
   <div class="overlay" id="overlay" hidden></div>
@@ -197,16 +218,19 @@
         <strong id="cartTotal">$0</strong>
       </div>
       <p class="cart__hint">El pago se realiza al recibir tu pedido 💕</p>
-      <button class="btn btn--primary btn--block" id="checkoutBtn">Finalizar pedido ♡</button>
+      <button class="btn btn--primary btn--block" id="checkoutBtn">Comprar ♡</button>
     </div>
   </aside>
 
   <!-- Modal de producto -->
-  <div class="modal" id="productModal" role="dialog" aria-modal="true" hidden>
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="pmodalName" hidden>
     <div class="modal__card modal__card--product">
       <button class="icon-btn modal__close" data-close-modal aria-label="Cerrar">✕</button>
       <div class="pmodal__media">
-        <img id="pmodalImg" src="" alt="" />
+        <div class="pmodal__main" id="pmodalMain">
+          <img id="pmodalImg" src="" alt="" />
+        </div>
+        <div class="pmodal__thumbs" id="pmodalThumbs"></div>
       </div>
       <div class="pmodal__info">
         <span class="pmodal__brand" id="pmodalBrand"></span>
@@ -219,12 +243,12 @@
     </div>
   </div>
 
-  <!-- Modal de checkout -->
-  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" hidden>
+  <!-- Modal de compra -->
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Finalizar compra" hidden>
     <div class="modal__card modal__card--checkout">
       <button class="icon-btn modal__close" data-close-modal aria-label="Cerrar">✕</button>
 
-      <div class="steps" id="checkoutSteps">
+      <div class="steps">
         <span class="steps__dot steps__dot--active" data-step-dot="1">1</span>
         <span class="steps__line"></span>
         <span class="steps__dot" data-step-dot="2">2</span>
@@ -234,7 +258,7 @@
 
       <!-- Paso 1: resumen -->
       <section class="checkout-step" data-step="1">
-        <h3 class="checkout__title">Resumen de tu pedido 🛍️</h3>
+        <h3 class="checkout__title">Tu pedido 🛍️</h3>
         <div class="checkout__summary" id="checkoutSummary"></div>
         <div class="checkout__total">
           <span>Total</span>
@@ -248,48 +272,61 @@
         <h3 class="checkout__title">Tus datos 💌</h3>
         <form id="checkoutForm" novalidate>
           <label class="field">
-            <span>Nombre</span>
-            <input type="text" name="nombre" placeholder="Tu nombre" required />
+            <span>Tu nombre</span>
+            <input type="text" name="name" placeholder="¿Cómo te llamas?" autocomplete="name" maxlength="80" required />
           </label>
           <label class="field">
-            <span>Instagram</span>
-            <input type="text" name="instagram" placeholder="@tu_usuario" required />
+            <span>Tu WhatsApp</span>
+            <input type="tel" name="phone" placeholder="10 dígitos, ej. 669 123 4567" autocomplete="tel" inputmode="tel" maxlength="20" required />
+            <small>Para confirmarte tu pedido y la entrega.</small>
           </label>
-          <fieldset class="field field--radio">
-            <span>Tipo de entrega</span>
-            <label><input type="radio" name="entrega" value="Domicilio (Mazatlán)" checked /> 🏠 A domicilio</label>
-            <label><input type="radio" name="entrega" value="Universidad UAS" /> 🎓 Universidad UAS</label>
+          <label class="field">
+            <span>Instagram <small>(opcional)</small></span>
+            <input type="text" name="instagram" placeholder="@tu_usuario" maxlength="60" />
+          </label>
+          <fieldset class="field">
+            <legend>¿Dónde lo recibes?</legend>
+            <div class="radio-cards">
+              <label class="radio-card"><input type="radio" name="delivery" value="A domicilio (Mazatlán)" checked /> 🏠 A domicilio</label>
+              <label class="radio-card"><input type="radio" name="delivery" value="Universidad UAS" /> 🎓 En la UAS</label>
+            </div>
           </fieldset>
           <label class="field">
-            <span>Notas (opcional)</span>
-            <textarea name="notas" rows="2" placeholder="Colonia, horario, referencias..."></textarea>
+            <span>Dirección o notas <small>(opcional)</small></span>
+            <textarea name="notes" rows="2" maxlength="500" placeholder="Colonia, calle, horario, referencias…"></textarea>
           </label>
-          <div class="checkout__nav">
-            <button type="button" class="btn btn--ghost" id="backStep1">← Volver</button>
-            <button type="submit" class="btn btn--primary">Confirmar pedido ♡</button>
+          <p class="field-error" id="checkoutError" hidden></p>
+          <div class="checkout__send">
+            <button type="submit" name="via" value="whatsapp" class="btn btn--whatsapp btn--block">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.16-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.06a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-3.06.89.9-2.98-.2-.31a8.16 8.16 0 1 1 6.82 3.72Zm4.48-6.1c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.77.96-.14.17-.28.19-.53.07a6.7 6.7 0 0 1-1.97-1.22 7.4 7.4 0 0 1-1.37-1.7c-.14-.25 0-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.75 2.75 0 0 0-.86 2.05c0 1.2.88 2.37 1 2.54.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.29Z"/></svg>
+              Comprar por WhatsApp
+            </button>
+            <button type="submit" name="via" value="correo" class="btn btn--ghost btn--block">💌 Prefiero enviarlo por correo</button>
           </div>
+          <button type="button" class="link-btn" id="backStep1">← Volver al resumen</button>
         </form>
       </section>
 
-      <!-- Paso 3: confirmación -->
+      <!-- Paso 3: enviado -->
       <section class="checkout-step checkout-step--done" data-step="3" hidden>
         <div class="checkout__party">🎀</div>
-        <h3 class="checkout__title">¡Pedido registrado!</h3>
+        <h3 class="checkout__title">¡Pedido listo, <span id="orderName"></span>!</h3>
         <p class="checkout__orderid">Pedido <strong id="orderId"></strong></p>
-        <p class="checkout__donetext">
-          Gracias, <strong id="orderName"></strong> 💖<br />
-          Te escribiremos por Instagram a <strong id="orderIg"></strong> para
-          confirmar tu entrega. El pago es al recibir.
-        </p>
-        <p class="checkout__demo">* Demo: esta tienda aún no procesa compras reales.</p>
+        <p class="checkout__donetext" id="orderDoneText"></p>
+        <p class="checkout__warn" id="orderWarn" hidden></p>
+        <div class="checkout__resend">
+          <a class="btn btn--whatsapp btn--block" id="resendWhatsapp" href="#" target="_blank" rel="noopener">Abrir WhatsApp con mi pedido</a>
+          <a class="btn btn--ghost btn--block" id="resendEmail" href="#">💌 Enviar por correo</a>
+          <button type="button" class="link-btn" id="copyOrder">Copiar el texto del pedido</button>
+        </div>
         <button class="btn btn--primary btn--block" id="doneBtn">Seguir viendo el catálogo ✨</button>
       </section>
     </div>
   </div>
 
   <!-- Toast -->
-  <div class="toast" id="toast" role="status"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

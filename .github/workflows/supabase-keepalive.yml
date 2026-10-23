@@ -1,0 +1,27 @@
+# Supabase (plan gratis) pausa los proyectos que pasan 7 días sin uso.
+# Esto hace una consulta chiquita cada 3 días para que la tienda nunca se "duerma".
+name: Mantener Supabase despierto
+
+on:
+  schedule:
+    - cron: "17 15 */3 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Consultar la base de datos
+        run: |
+          URL=$(grep -oP 'SUPABASE_URL:\s*"\K[^"]*' js/config.js || true)
+          KEY=$(grep -oP 'SUPABASE_KEY:\s*"\K[^"]*' js/config.js || true)
+          if [ -z "$URL" ] || [ -z "$KEY" ]; then
+            echo "Supabase todavía no está configurado en js/config.js, no hay nada que despertar."
+            exit 0
+          fi
+          curl -fsS "$URL/rest/v1/categories?select=id&limit=1" -H "apikey: $KEY" -o /dev/null -w "Supabase respondió HTTP %{http_code}\n"
