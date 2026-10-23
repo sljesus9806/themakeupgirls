@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel · The Make Up Girls</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#ffc9df" />
+  <link rel="icon" href="products/logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <div class="boot" id="bootScreen"><div class="spinner"></div></div>
+
+  <!-- Falta configurar Supabase -->
+  <section class="auth-screen" id="setupScreen" hidden>
+    <div class="auth-card auth-card--wide">
+      <img src="products/logo.jpeg" alt="" class="auth-card__logo" />
+      <h1>Falta conectar la base de datos ✿</h1>
+      <p>El panel necesita una base de datos en línea (gratis) para guardar productos y pedidos.</p>
+      <ol class="setup-steps">
+        <li>Crea un proyecto gratis en <a href="https://supabase.com" target="_blank" rel="noopener">supabase.com</a>.</li>
+        <li>En <strong>SQL Editor</strong> corre <code>supabase/schema.sql</code> (y si quieres <code>supabase/seed.sql</code>).</li>
+        <li>En <strong>Authentication → Users</strong> crea la cuenta de la dueña.</li>
+        <li>Copia la <strong>Project URL</strong> y la <strong>publishable key</strong> en <code>js/config.js</code>.</li>
+      </ol>
+      <p class="muted">Los pasos detallados están en el README del proyecto 💕</p>
+      <a class="btn btn--ghost" href="index.html">← Volver a la tienda</a>
+    </div>
+  </section>
+
+  <!-- Login -->
+  <section class="auth-screen" id="loginScreen" hidden>
+    <form class="auth-card" id="loginForm" novalidate>
+      <img src="products/logo.jpeg" alt="" class="auth-card__logo" />
+      <h1>Hola de nuevo <span class="script">bonita</span></h1>
+      <p>Entra para ver tus pedidos y manejar tu tienda ♡</p>
+      <label class="field">
+        <span>Correo</span>
+        <input type="email" name="email" autocomplete="username" required />
+      </label>
+      <label class="field">
+        <span>Contraseña</span>
+        <input type="password" name="password" autocomplete="current-password" required />
+      </label>
+      <p class="field-error" id="loginError" hidden></p>
+      <button class="btn btn--primary btn--block" type="submit">Entrar ✨</button>
+      <button class="link-btn" type="button" id="forgotBtn">¿Olvidaste tu contraseña?</button>
+      <a class="link-btn" href="index.html">← Volver a la tienda</a>
+    </form>
+
+    <form class="auth-card" id="resetForm" novalidate hidden>
+      <img src="products/logo.jpeg" alt="" class="auth-card__logo" />
+      <h1>Recuperar contraseña</h1>
+      <p>Te mandamos un enlace a tu correo para crear una nueva.</p>
+      <label class="field">
+        <span>Correo</span>
+        <input type="email" name="email" autocomplete="username" required />
+      </label>
+      <p class="field-error" id="resetError" hidden></p>
+      <button class="btn btn--primary btn--block" type="submit">Enviar enlace 💌</button>
+      <button class="link-btn" type="button" id="backToLogin">← Volver</button>
+    </form>
+
+    <form class="auth-card" id="newPasswordForm" novalidate hidden>
+      <img src="products/logo.jpeg" alt="" class="auth-card__logo" />
+      <h1>Nueva contraseña</h1>
+      <label class="field">
+        <span>Contraseña nueva</span>
+        <input type="password" name="password" autocomplete="new-password" minlength="8" required />
+        <small>Mínimo 8 caracteres.</small>
+      </label>
+      <label class="field">
+        <span>Repítela</span>
+        <input type="password" name="password2" autocomplete="new-password" required />
+      </label>
+      <p class="field-error" id="newPasswordError" hidden></p>
+      <button class="btn btn--primary btn--block" type="submit">Guardar contraseña</button>
+    </form>
+  </section>
+
+  <!-- Panel -->
+  <div class="panel" id="panel" hidden>
+    <header class="admin-header">
+      <a class="admin-header__brand" href="index.html" target="_blank" rel="noopener" title="Ver tienda">
+        <img src="products/logo.jpeg" alt="" />
+        <span>Panel <span class="script">the make up girls</span></span>
+      </a>
+      <div class="admin-header__actions">
+        <a class="btn btn--ghost btn--sm" href="index.html" target="_blank" rel="noopener">Ver tienda ↗</a>
+        <button class="btn btn--ghost btn--sm" id="logoutBtn">Salir</button>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab tab--active" data-tab="pedidos" role="tab">🛍️ Pedidos <span class="tab__badge" id="pendingBadge" hidden>0</span></button>
+      <button class="tab" data-tab="productos" role="tab">💄 Productos</button>
+      <button class="tab" data-tab="categorias" role="tab">🌸 Categorías</button>
+    </nav>
+
+    <main class="admin-main">
+      <!-- Pedidos -->
+      <section class="tab-panel" id="tab-pedidos">
+        <div class="stats" id="orderStats"></div>
+        <div class="toolbar">
+          <div class="chips" id="orderFilters">
+            <button class="chip tint-pink chip--active" data-status="pendiente">⏳ Pendientes</button>
+            <button class="chip tint-lilac" data-status="confirmado">💬 Confirmados</button>
+            <button class="chip tint-mint" data-status="entregado">🎁 Entregados</button>
+            <button class="chip tint-peach" data-status="cancelado">✕ Cancelados</button>
+            <button class="chip tint-sky" data-status="todos">Todos</button>
+          </div>
+          <button class="btn btn--ghost btn--sm" id="refreshOrders">↻ Actualizar</button>
+        </div>
+        <div class="orders" id="ordersList"></div>
+      </section>
+
+      <!-- Productos -->
+      <section class="tab-panel" id="tab-productos" hidden>
+        <div class="toolbar">
+          <input class="input toolbar__search" type="search" id="productSearch" placeholder="Buscar producto o marca…" />
+          <select class="input toolbar__select" id="productCategoryFilter" aria-label="Filtrar por categoría"></select>
+          <button class="btn btn--primary" id="newProductBtn">+ Nuevo producto</button>
+        </div>
+        <div class="admin-products" id="productsList"></div>
+      </section>
+
+      <!-- Categorías -->
+      <section class="tab-panel" id="tab-categorias" hidden>
+        <form class="cat-form" id="categoryForm" novalidate>
+          <h2>Nueva categoría</h2>
+          <div class="cat-form__row">
+            <input class="input cat-form__emoji" name="emoji" placeholder="🌸" maxlength="8" aria-label="Emoji" />
+            <input class="input" name="name" placeholder="Ej. Ojos, Uñas, Skincare…" maxlength="40" aria-label="Nombre de la categoría" required />
+            <button class="btn btn--primary" type="submit">Agregar</button>
+          </div>
+          <div class="emoji-picks" id="emojiPicks"></div>
+        </form>
+        <div class="cat-list" id="categoriesList"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Editor de producto -->
+  <div class="modal" id="productEditor" role="dialog" aria-modal="true" aria-labelledby="editorTitle" hidden>
+    <form class="modal__card editor" id="productForm" novalidate>
+      <button type="button" class="icon-btn modal__close" data-close-editor aria-label="Cerrar">✕</button>
+      <h2 class="editor__title" id="editorTitle">Nuevo producto</h2>
+
+      <div class="editor__section">
+        <h3>Fotos <small>La primera es la principal. Se ajustan solas para que carguen rápido.</small></h3>
+        <div class="photos" id="photoGrid"></div>
+        <input type="file" id="photoInput" accept="image/*" multiple hidden />
+      </div>
+
+      <div class="editor__grid">
+        <label class="field editor__wide">
+          <span>Nombre del producto *</span>
+          <input type="text" name="name" maxlength="120" placeholder="Ej. Buttermelt Blush" required />
+        </label>
+        <label class="field">
+          <span>Marca</span>
+          <input type="text" name="brand" maxlength="60" placeholder="Ej. NYX" list="brandOptions" />
+          <datalist id="brandOptions"></datalist>
+        </label>
+        <label class="field">
+          <span>Precio (MXN) *</span>
+          <input type="number" name="price" min="0" step="1" inputmode="decimal" placeholder="259" required />
+        </label>
+        <div class="field editor__wide">
+          <label for="editorCategory">Categoría</label>
+          <div class="editor__catrow">
+            <select name="category_id" id="editorCategory"></select>
+            <button type="button" class="btn btn--ghost btn--sm" id="quickCategoryBtn">+ Nueva</button>
+          </div>
+        </div>
+        <label class="field editor__wide">
+          <span>Descripción</span>
+          <textarea name="description" rows="3" maxlength="1500" placeholder="Cuéntales por qué lo van a amar ✨"></textarea>
+        </label>
+      </div>
+
+      <fieldset class="field">
+        <legend>Etiqueta</legend>
+        <div class="pick-row">
+          <label class="pick"><input type="radio" name="badge" value="" checked /><span>Ninguna</span></label>
+          <label class="pick"><input type="radio" name="badge" value="nuevo" /><span class="badge badge--mint">Nuevo ✨</span></label>
+          <label class="pick"><input type="radio" name="badge" value="viral" /><span class="badge badge--pink">Viral 💖</span></label>
+          <label class="pick"><input type="radio" name="badge" value="bestseller" /><span class="badge badge--lilac">Best seller</span></label>
+          <label class="pick"><input type="radio" name="badge" value="oferta" /><span class="badge badge--butter">Oferta 🎉</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>Estado</legend>
+        <div class="pick-row">
+          <label class="pick"><input type="radio" name="status" value="disponible" checked /><span>✅ Disponible</span></label>
+          <label class="pick"><input type="radio" name="status" value="agotado" /><span>😢 Agotado</span></label>
+          <label class="pick"><input type="radio" name="status" value="oculto" /><span>🙈 Oculto</span></label>
+        </div>
+        <small>Agotado: se ve pero no se puede comprar. Oculto: no aparece en la tienda.</small>
+      </fieldset>
+
+      <div class="editor__section">
+        <h3>Tonos <small>Opcional. Si el producto viene en varios colores, agrégalos aquí.</small></h3>
+        <div class="shades-editor" id="shadesEditor"></div>
+        <button type="button" class="btn btn--ghost btn--sm" id="addShadeBtn">+ Agregar tono</button>
+      </div>
+
+      <p class="field-error" id="editorError" hidden></p>
+      <div class="editor__foot">
+        <button type="button" class="btn btn--ghost" data-close-editor>Cancelar</button>
+        <button type="submit" class="btn btn--primary" id="saveProductBtn">Guardar producto 💖</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
