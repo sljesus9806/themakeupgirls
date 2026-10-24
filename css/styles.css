@@ -15,6 +15,75 @@ body {
 
 .script { font-family: var(--font-script); font-weight: 400; text-transform: none; color: var(--berry); }
 
+/* ---------- Estrellitas de fondo (js/stars.js) ----------
+   Van detrás de todo (z-index -1): se asoman en los espacios libres
+   y se esconden detrás de las tarjetas, así no estorban al leer. */
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.star {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  color: var(--color);
+  opacity: calc(var(--peak) * 0.6);
+  animation:
+    star-drift var(--drift) ease-in-out var(--delay) infinite alternate,
+    star-twinkle var(--twinkle) ease-in-out var(--delay) infinite;
+}
+.star svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  filter: drop-shadow(0 0 3px currentColor);
+}
+.star--dot {
+  border-radius: 50%;
+  background: var(--color);
+  box-shadow: 0 0 6px 1px var(--color);
+}
+@keyframes star-drift {
+  to { translate: var(--dx) var(--dy); }
+}
+@keyframes star-twinkle {
+  0%, 100% { opacity: calc(var(--peak) * 0.3); scale: 0.7; rotate: 0deg; }
+  50% { opacity: var(--peak); scale: 1; rotate: 25deg; }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 130px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color), transparent);
+  rotate: -28deg;
+  opacity: 0;
+  animation: shoot 1.5s cubic-bezier(0.3, 0.6, 0.5, 1) forwards;
+}
+.shooting-star::before {
+  /* cabecita brillante */
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  translate: 0 -50%;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 0 8px 2px var(--color);
+}
+@keyframes shoot {
+  0% { opacity: 0; transform: translateX(0); }
+  15% { opacity: 0.75; }
+  100% { opacity: 0; transform: translateX(-280px); }
+}
+
 /* ---------- Barra de anuncios ---------- */
 .announcement {
   background: linear-gradient(90deg, var(--pink-200), var(--lilac-200), var(--mint-200), var(--butter-200), var(--pink-200));
@@ -177,7 +246,7 @@ body {
   text-shadow: 3px 3px 0 var(--lilac-200);
   padding-right: 0.1em;
 }
-.hero__nowrap { white-space: nowrap; }
+.hero__nowrap { display: inline-block; white-space: nowrap; line-height: 1.3; }
 .hero__heart {
   display: inline-block;
   font-size: 0.6em;
