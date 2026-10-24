@@ -44,6 +44,12 @@ function createSky() {
   }
 
   document.body.prepend(sky);
+  // Si el navegador trae un styles.css viejo sin estas reglas, mejor no dibujar nada
+  // (sin estilos, cada destello se pintaría del ancho de la pantalla)
+  if (getComputedStyle(sky).position !== "fixed") {
+    sky.remove();
+    return null;
+  }
   return sky;
 }
 
@@ -65,4 +71,4 @@ function scheduleShootingStars(sky) {
 }
 
 const sky = createSky();
-if (!reduceMotion) scheduleShootingStars(sky);
+if (sky && !reduceMotion) scheduleShootingStars(sky);
