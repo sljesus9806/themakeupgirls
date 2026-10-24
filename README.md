@@ -99,6 +99,8 @@ python3 -m http.server 8000
 Abre <http://localhost:8000> (tienda) y <http://localhost:8000/admin.html> (panel).
 Mientras `js/config.js` no tenga los datos de Supabase, la tienda funciona en **modo demo** con el catálogo de ejemplo, y el panel muestra los pasos para conectarla.
 
+> **Al cambiar CSS o JS:** sube el número `?v=...` de los `<link>` y `<script>` en `index.html` y `admin.html` (por ejemplo, la fecha del día). GitHub Pages deja que los navegadores guarden esos archivos 10 minutos; sin el número nuevo, alguien podría ver el HTML nuevo con el CSS viejo.
+
 ## Estructura
 
 ```
